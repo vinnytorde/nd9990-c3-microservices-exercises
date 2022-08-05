@@ -1,0 +1,46 @@
+# deployment
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    service: reverseproxy # this must match the service selector
+  name: reverseproxy
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        service: reverseproxy
+    spec:
+      containers:
+      - image: YOUR_DOCKER_HUB/simple-reverse-proxy
+        name: reverseproxy
+        imagePullPolicy: Always          
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"       
+        ports:
+        - containerPort: 8080
+      restartPolicy: Always
+
+---
+# service
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: reverseproxy
+  name: reverseproxy-svc
+spec:
+  ports:
+  - name: "8080"
+    port: 8080
+    targetPort: 8080 
+  selector:
+    service: reverseproxy # this must match the deployment selector
