@@ -6,10 +6,10 @@ metadata:
     app: nanodegree
 data:
   set_env.sh: |
-    export POSTGRES_HOST=database-1.cnhji4lbydmh.us-east-1.rds.amazonaws.com
-    export POSTGRES_DB=postgres
-    export AWS_BUCKET=arn:aws:s3:::nanodegree-project-3
-    export AWS_REGION=us-east-1
-    export AWS_PROFILE=test
-    export JWT_SECRET=testing
-    export URL=http://localhost:8100
+    POSTGRES_HOST=database-1.cnhji4lbydmh.us-east-1.rds.amazonaws.com
+    POSTGRES_DB=postgres
+    AWS_BUCKET=arn:aws:s3:::nanodegree-project-3
+    AWS_REGION=us-east-1
+    AWS_PROFILE=test
+    JWT_SECRET=testing
+    URL=http://localhost:8100

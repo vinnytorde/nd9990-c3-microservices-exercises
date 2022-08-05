@@ -1,20 +1,23 @@
 # deployment
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    service: udagram-api-feed
-  name: udagram-api-feed
+    deployment: udagram-api-feed
+  name: udagram-api-feed-deployment
 spec:
-  replicas: 1
+  selector:
+    matchLabels:
+      app: udagram-api-feed
+  replicas: 2
   template:
     metadata:
       labels:
-        service: udagram-api-feed
+        app: udagram-api-feed
     spec:
       containers:
-      - image: vinnytorde/udagram-api-feed
+      - image: vinnytorde/udagram-api-feed:v1
         name: udagram-api-feed
         imagePullPolicy: Always          
         resources:
@@ -43,4 +46,4 @@ spec:
     port: 8080
     targetPort: 8080 
   selector:
-    service: udagram-api-feed
+    app: udagram-api-feed

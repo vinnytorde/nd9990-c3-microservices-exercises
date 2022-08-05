@@ -1,20 +1,23 @@
 # deployment
 
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    service: udagram-frontend
-  name: udagram-frontend
+    deployment: udagram-frontend
+  name: udagram-frontend-deployment
 spec:
+  selector:
+    matchLabels:
+      app: udagram-frontend
   replicas: 1
   template:
     metadata:
       labels:
-        service: udagram-frontend
+        app: udagram-frontend
     spec:
       containers:
-      - image: vinnytorde/udagram-frontend
+      - image: vinnytorde/udagram-frontend:v1
         name: udagram-frontend
         imagePullPolicy: Always          
         resources:
@@ -43,4 +46,4 @@ spec:
     port: 8080
     targetPort: 8080 
   selector:
-    service: udagram-frontend
+    app: udagram-frontend
