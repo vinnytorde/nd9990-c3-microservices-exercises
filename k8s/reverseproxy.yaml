@@ -17,7 +17,7 @@ spec:
         app: reverseproxy
     spec:
       containers:
-      - image: vinnytorde/reverseproxy:v1
+      - image: vinnytorde/reverseproxy
         name: reverseproxy
         imagePullPolicy: Always          
         resources:
@@ -25,7 +25,7 @@ spec:
             memory: "64Mi"
             cpu: "250m"
           limits:
-            memory: "1024Mi"
+            memory: "2048Mi"
             cpu: "500m"       
         ports:
         - containerPort: 8080

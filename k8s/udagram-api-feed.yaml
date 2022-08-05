@@ -17,7 +17,7 @@ spec:
         app: udagram-api-feed
     spec:
       containers:
-      - image: vinnytorde/udagram-api-feed:v1
+      - image: vinnytorde/udagram-api-feed
         name: udagram-api-feed
         imagePullPolicy: Always          
         resources:
@@ -25,7 +25,7 @@ spec:
             memory: "64Mi"
             cpu: "250m"
           limits:
-            memory: "1024Mi"
+            memory: "2048Mi"
             cpu: "500m"       
         ports:
         - containerPort: 8080
