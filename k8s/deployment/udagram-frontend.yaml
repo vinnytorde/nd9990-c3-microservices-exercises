@@ -30,20 +30,3 @@ spec:
         ports:
         - containerPort: 8080
       restartPolicy: Always
-
----
-# service
-
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    service: udagram-frontend
-  name: udagram-frontend-svc
-spec:
-  ports:
-  - name: "8080"
-    port: 8080
-    targetPort: 8080 
-  selector:
-    app: udagram-frontend
