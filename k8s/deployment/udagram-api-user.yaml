@@ -20,6 +20,13 @@ spec:
       - image: vinnytorde/udagram-api-user
         name: udagram-api-user
         imagePullPolicy: Always          
+        envFrom:
+          - configMapRef:
+              name: env-configmap
+          - secretRef:
+              name: postgres-secret
+          - secretRef:
+              name: aws-secret
         resources:
           requests:
             memory: "64Mi"

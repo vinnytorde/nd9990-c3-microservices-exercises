@@ -19,7 +19,14 @@ spec:
       containers:
       - image: vinnytorde/udagram-api-feed
         name: udagram-api-feed
-        imagePullPolicy: Always          
+        imagePullPolicy: Always   
+        envFrom:
+          - configMapRef:
+              name: env-configmap
+          - secretRef:
+              name: postgres-secret
+          - secretRef:
+              name: aws-secret
         resources:
           requests:
             memory: "64Mi"
