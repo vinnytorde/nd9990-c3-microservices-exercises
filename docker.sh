@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 docker build -t udagram-api-feed ./udagram-api-feed
 docker build -t udagram-api-user ./udagram-api-user

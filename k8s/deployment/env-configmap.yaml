@@ -5,7 +5,7 @@ metadata:
   labels:
     app: nanodegree
 data:
-  POSTGRES_HOST: database-1.cnhji4lbydmh.us-east-1.rds.amazonaws.com
+  POSTGRES_HOST: database-2.cjprn6wvsuvw.us-east-1.rds.amazonaws.com
   POSTGRES_DB: postgres
   AWS_BUCKET: arn:aws:s3:::nanodegree-project-3
   AWS_REGION: us-east-1
